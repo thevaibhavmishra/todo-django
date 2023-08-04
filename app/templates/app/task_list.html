@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <th> Item </th>
+    </tr>
+
+    {% for task in tasks %}
+        <tr>
+            <td> {{task.title}} </td> 
+            <td>  <a href="{% url 'delete' task.id %}" > Delete </a> </td>
+        </tr>
+    
+    {% empty %}
+        <h3>
+            No Items in list
+        </h3>
+
+    {% endfor %}
+
+</table>
+
+{% endblock content%}
